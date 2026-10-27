@@ -1,6 +1,6 @@
 # Student API (Miras Yeren, IT2-2308, 41517)
 
-Student API (Spring Boot, CRUD) for the DevOps midterm task.
+Student API (Spring Boot, CRUD) for the DevOps midterm task, IT2-2308.
 
 - **Student:** Miras Yeren, group IT2-2308, ID 41517
 - **Stack:** Java 21, Spring Boot 3.3, Spring Data JPA, PostgreSQL, Gradle
