@@ -1,4 +1,4 @@
-# yeren-miras-student-api
+# Student API (Miras Yeren, IT2-2308, 41517)
 
 Student API (Spring Boot, CRUD) for the DevOps midterm task.
 
