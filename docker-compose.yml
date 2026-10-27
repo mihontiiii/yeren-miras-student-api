@@ -1,0 +1,43 @@
+name: yeren-miras-student-api
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: yeren-miras-db
+    environment:
+      POSTGRES_DB: studentdb
+      POSTGRES_USER: student
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-student_pass}
+    ports:
+      - "5434:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - student-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U student -d studentdb"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  app:
+    build: .
+    image: yeren-miras-student-api:v1.0-yeren-miras-41517
+    container_name: yeren-miras-student-api
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/studentdb
+      DB_USERNAME: student
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-student_pass}
+    ports:
+      - "8080:8080"
+    networks:
+      - student-net
+
+volumes:
+  pgdata:
+
+networks:
+  student-net:
