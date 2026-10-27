@@ -1,6 +1,8 @@
-# yeren-miras-student-api
+# Student API (Miras Yeren, IT2-2308, 41517)
 
-Student API: Spring Boot CRUD application for the DevOps midterm task.
+
+Student API (Spring Boot, CRUD) for the DevOps midterm task, IT2-2308.
+
 
 - Author: Miras Yeren
 - Group: IT2-2308
