@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -32,6 +33,10 @@ public class StudentController {
     @GetMapping("/{id}")
     public Student findById(@PathVariable Long id) {
         return repository.findById(id).orElseThrow(() -> new StudentNotFoundException(id));
+    }
+    @GetMapping("/search")
+    public List<Student> findByLastName(@RequestParam String lastName) {
+        return repository.findByLastNameIgnoreCase(lastName);
     }
 
     @PostMapping
